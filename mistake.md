@@ -32,6 +32,8 @@ request_meta = {
 
 post/orderdelivery/get_trace_by_tracking_number 查询物流信息
 
+
+
 require ["siteuser","related_company"]
 
 expresscompany_code   必填 默认值 BLANK 物流公司编码
@@ -49,6 +51,12 @@ check_word  校验码
 ExpressCompanyRepo()
 
 查询物流信息
+
+
+
+post/order_ccode/submit_papp_order 创建应用订单
+
+
 
 
 
@@ -71,4 +79,18 @@ www.example.com/a_id/3/
     www.example.com/article/America-attack-on-lraq
     这个过程就是Slug
 ```
+
+
+
+结算页面流程
+
+先检验商品是否能够购买(通过is_active,onsale,remain)
+
+=> 计算价格
+
+=>保存订单
+
+=>更新订单产品(将其里面所购买产品对应的购物车id改为None)
+
+
 
